@@ -26,8 +26,8 @@ export default function OrphanagesMap(){
     });
   }, []);
 
-  function handlerNavigateToOrphanageDetails(){
-    navigation.navigate('OrphanageDetails');
+  function handlerNavigateToOrphanageDetails(id: number){
+    navigation.navigate('OrphanageDetails', { id });
   }
 
   function handlerNavigateToCreateOrphanage(){
@@ -62,7 +62,7 @@ export default function OrphanagesMap(){
                 longitude: orphanage.longitude,
               }}
             >
-              <Callout tooltip={true} onPress={handlerNavigateToOrphanageDetails}>
+              <Callout tooltip={true} onPress={() => handlerNavigateToOrphanageDetails(orphanage.id)}>
                 <View style={styles.calloutCountainer}>
                   <Text style={styles.calloutText}>{orphanage.name}</Text>
                 </View>
@@ -73,7 +73,7 @@ export default function OrphanagesMap(){
       </MapView>
 
       <View style={styles.footer}>
-        <Text style={styles.footerText}>orfanatos encontrados</Text>
+      <Text style={styles.footerText}>{orphanages.length} orfanatos encontrados</Text>
 
         <RectButton style={styles.createOrphanageButton} onPress={handlerNavigateToCreateOrphanage}>
           <Feather name="plus" size={20} color="#fff"/>
