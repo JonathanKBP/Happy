@@ -1,9 +1,6 @@
 <p align="center">
   <img src="./.github/logo.png" alt="Happy" />
 </p>
-<h1 align="center">
-  Happy
-</h1>
 
 # :pushpin: Índice
 <!--ts-->
