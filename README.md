@@ -1,7 +1,9 @@
 <p align="center">
   <img src="./web/src/images/logo.svg" alt="Happy" />
 </p>
-
+<h1 align="center">
+  Happy
+</h1>
 
 # :pushpin: Índice
 <!--ts-->
