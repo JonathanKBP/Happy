@@ -8,11 +8,11 @@
    * [Sobre](#sobre)
    * [O que é Next Level Week?](#nlw)
    * [Preview do Projeto](#preview)
+   * [Tecnologias](#tecnologias)
    * [Como rodar o projeto](#run)
       * [Ligar a API](#api)
       * [Visualizar WebSite](#website)
       * [Rodar projeto no celular](#mob)
-   * [Tecnologias](#tecnologias)
    * [Licença](#license)
 <!--te-->
 
@@ -20,7 +20,7 @@
 
 <h1 name="sobre">ℹ Sobre o Projeto</h1>
 Projeto Happy foi construido durante esta semana do dia 12 a 18 de outubro de 2020 na Next Level Week. <br>
-Happy é um projeto em homenagem ao dia das crianças onde nele é possível ver os orfanatos na sua cidade e criar agendar horarios para visitas. (As crianças adoram visitas) 🧒❤ <br><br>
+Happy é um projeto em homenagem ao dia das crianças onde nele é possível ver os orfanatos na sua cidade e criar agendar horarios para visitas. (As crianças adoram visitas) <br><br>
 
 
 
@@ -40,23 +40,34 @@ A Rocketseat tem a consciência que a prática é a melhor aula, então sempre n
 <li><strong>Grupo: </strong> A comunidade de devs é uma das melhores comunidades que existem! Trabalhar em grupo é essencial, já perdi a conta de quantas vezes ajudei e fui ajudado com erros de programação.</li>
 <li><strong>Prática: </strong> E claro, não podia faltar! Quando vemos uma aula, nós podemos entender os conceitos, mas só na prática que aprendemos realmente como faze-los! </li>
 
-<h1 name="preview">:eyes: Preview do Projeto</h1>
+<h1 name="preview">🖼️ Preview do Projeto</h1>
 
-<h3>Web</h3>
+<h3>💻 Web</h3>
 <img src=".github/web.gif">
 
-<h3>Mobile</h3>
+<h3>📱 Mobile</h3>
 
 <p align="center">
-  <img width="33.3%" src="./.github/mobile1.png" alt="tela de carregamento">
-  <img width="33.3%" src="./.github/mobile2.png" alt="Escolher local no mapa">
-  <img width="33.3%" src="./.github/mobile3.png" alt="confirmar local">
+  <img width="32.3%" src="./.github/mobile1.png" alt="tela de carregamento">
+  <img width="32.3%" src="./.github/mobile2.png" alt="Escolher local no mapa">
+  <img width="32.3%" src="./.github/mobile3.png" alt="confirmar local">
 <p>
 <p align="center">
-  <img width="33.3%" src="./.github/mobile4.png" alt="Tela cadastro">
-  <img width="33.3%" src="./.github/mobile5.png" alt="Confirmar cadastro">
-  <img width="33.3%" src="./.github/mobile6.png" alt="Detalhes do orfanato">
+  <img width="32.3%" src="./.github/mobile4.png" alt="Tela cadastro">
+  <img width="32.3%" src="./.github/mobile5.png" alt="Confirmar cadastro">
+  <img width="32.3%" src="./.github/mobile6.png" alt="Detalhes do orfanato">
 <p>
+  
+<h1 name="tecnologias">🚀 Tecnologias</h1>
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Expo](https://expo.io/)
+- [Node.js](https://nodejs.org/en/)
+- [React](https://pt-br.reactjs.org/)
+- [React Native](https://reactnative.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+
 
 <h1 name="run">:construction_worker: Como rodar o projeto</h1> <br>
 
@@ -72,7 +83,7 @@ $ git clone https://github.com/JonathanKBP/Happy.git
 $ cd backend
 
 # Instale as dependencias
-$ yarn install
+$ yarn
 
 # Ligue a API
 $ yarn dev
@@ -110,15 +121,6 @@ $ yarn start
 ```
 Irá abrir uma aba no seu navegador e apacerá um QR Code, se escanear ele no aplicativo Expo, abrirá a aplicação. Terá uma opção para rodar em um emulador também.
 
-<h1 name="tecnologias">🛠 Tecnologias</h1>
-
-As seguintes ferramentas foram usadas na construção do projeto:
-
-- [Expo](https://expo.io/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
 
 <h1 name="license">:memo: License</h1>
 
