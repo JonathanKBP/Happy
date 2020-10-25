@@ -1,13 +1,16 @@
-#page-landing {
-  background: linear-gradient(329.54deg, #29B6D1 0%, #00C7C7 100%);
+import styled from 'styled-components';
+import backgroundImage from '../../images/landing.svg';
+
+export const PageLanding = styled.div`
+  background: linear-gradient(329.54deg, ${props => props.theme.colors.primary} 0%, ${props => props.theme.colors.secundary} 100%);
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+`;
 
-#page-landing .content-wrapper {
+export const ContentWrapper = styled.div`
   padding: 45px;
   
   position: relative;
@@ -19,26 +22,34 @@
   align-items: flex-start;
   flex-direction: column;
   justify-content: space-between;
-  background: url('../../images/landing.svg') no-repeat 80% center;
-}
+  background: url(${backgroundImage}) no-repeat 80% center;
+`;
 
-#page-landing .content-wrapper main {
+export const Switch = styled.div`
+  position: absolute;
+  right: 0;
+  top: 45px;
+  display: flex;  
+  margin-right: 45%;
+`;
+
+export const Main = styled.div`
   max-width: 350px;
-}
+`;
 
-#page-landing .content-wrapper main h1 {
+export const H1 = styled.div`
   font-size: 76px;
   font-weight: 900;
   line-height: 78px;
-}
+`;
 
-#page-landing .content-wrapper main p {
+export const P = styled.div`
   margin-top: 48px;
   font-size: 24px;
   line-height: 34px;
-}
+`;
 
-.content-wrapper .location {
+export const Location = styled.div`
   position: absolute;
   right: 0;
   top: 45px;
@@ -48,13 +59,14 @@
   flex-direction: column;
   text-align: right;
   margin-right: 45px;
-}
+`;
 
-.content-wrapper .location strong {
+export const Strong = styled.div`
   font-weight: 800;
-}
+`;
 
-.content-wrapper .enter-app {
+
+export const EnterApp = styled.div`
   position: absolute;
   right: 0;
   bottom: 45px;
@@ -65,10 +77,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s;
+  transition: background 0.2s;
   margin-right: 45px;
-}
 
-.content-wrapper .enter-app:hover {
-  background-color: #96feff;
-}
+  &:hover,
+  &:focus {
+    background: #96feff
+  }
+`;

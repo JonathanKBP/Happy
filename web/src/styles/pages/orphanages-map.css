@@ -43,13 +43,14 @@
   z-index: 5;
 }
 
+
+#page-map .buttonHome, 
 #page-map .create-orphanage {
   z-index: 10;
   
   position: absolute;
   right: 40px;
-  bottom: 40px;
- 
+
   width: 64px;
   height: 64px;
   background: #15c3d6;
@@ -62,8 +63,17 @@
   transition: background-color 0.2s;
 }
 
+#page-map .buttonHome:hover,
 #page-map .create-orphanage:hover {
-  background: #17d6eb;
+  background: #17D6EB;
+}
+
+#page-map .buttonHome{
+  top: 40px;
+}
+
+#page-map .create-orphanage {
+  bottom: 40px;
 }
 
 #page-map .map-popup .leaflet-popup-content-wrapper {

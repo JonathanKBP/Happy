@@ -33,6 +33,10 @@ aside.app-sidebar footer button {
   align-items: center;
 }
 
+aside.app-sidebar footer a:first-child{
+  margin-bottom: 16px;
+}
+
 aside.app-sidebar footer a:hover,
 aside.app-sidebar footer button:hover {
   background: #17D6EB;

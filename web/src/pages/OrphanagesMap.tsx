@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiPlus, FiArrowRight } from 'react-icons/fi'; 
+import { FiPlus, FiArrowRight, FiHome } from 'react-icons/fi'; 
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 
 import mapMarkerImg from '../images/map-marker.svg';
@@ -18,6 +18,10 @@ interface Orphanage{
 
 function OrphangesMap() {
   const [orphanages, setOrphanages] = useState<Orphanage[]>([]);
+
+  const defaultPosition = {latitude:-23.5394381, longitude: -46.6134418};
+  const [mapZoom, setMapZoom] = useState(12);
+  const [mapPosition, setMapPosition] = useState({latitude: defaultPosition.latitude, longitude: defaultPosition.longitude});
 
   useEffect(() => {
     api.get('orphanages').then(response => {
@@ -41,11 +45,15 @@ function OrphangesMap() {
       </aside>
 
       <Map
-        center={[-23.5394381,-46.6134418]}
-        zoom={15}
+        center={[mapPosition.latitude, mapPosition.longitude]}
+        zoom={mapZoom}
         style={{ width: '100%', height: '100%' }}
+        onclick={() => {
+          setMapZoom(12);
+          setMapPosition({latitude: defaultPosition.latitude, longitude: defaultPosition.longitude})
+        }}
       >
-        <TileLayer url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+        <TileLayer url={`https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}/>
 
         {orphanages.map(orphanage => {
           return(
@@ -53,6 +61,10 @@ function OrphangesMap() {
               key={orphanage.id}
               icon={mapIcon}
               position={[orphanage.latitude, orphanage.longitude]}
+              onclick={() => {
+                setMapZoom(20);
+                setMapPosition({latitude: orphanage.latitude, longitude: orphanage.longitude})
+              }}             
             >
               <Popup closeButton={false} minWidth={248} maxWidth={248} className="map-popup">
                 {orphanage.name}   
@@ -64,6 +76,10 @@ function OrphangesMap() {
           )
         })}
       </Map>
+
+      <Link to="/" className="buttonHome">
+        <FiHome size={24} color="#FFF"/>
+      </Link>
 
       <Link to="/orphanages/create" className="create-orphanage">
         <FiPlus size={32} color="FFF" />

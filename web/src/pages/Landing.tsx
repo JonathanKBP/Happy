@@ -1,34 +1,51 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import { ThemeContext } from 'styled-components';
 
-import '../styles/global.css';
-import '../styles/pages/landing.css';
+import * as landing from '../styles/pages/landing';
 
 import logoImg from '../images/logo.svg';
 
 function Landing() {
+  
   return (
-    <div id="page-landing">
-      <div className="content-wrapper">
-        <img src={logoImg} alt="Happy" />
-        
-        <main>
-          <h1>Leve felicidade para o mundo</h1>
-          <p>Visite orfanatos e mude o dia de muitas crianças.</p>
-        </main>
+    <>
+      <landing.PageLanding>
+        <landing.ContentWrapper>
+          <img src={logoImg} alt="Happy" />  
+               
+          <landing.Switch>
+          
+          </landing.Switch>
 
-        <div className="location">
-          <strong>São Paulo</strong>
-          <span>São Paulo</span>
-        </div>
+          <landing.Main>
+            <landing.H1>
+              Leve felicidade para o mundo
+            </landing.H1>
+            <landing.P>
+              Visite orfanatos e mude o dia de muitas crianças.
+            </landing.P>
+                              
+          </landing.Main>
 
-        <Link to="/app" className="enter-app">
-          <FiArrowRight size={26} color="rgba(0, 0, 0, 0.6)" />
-        </Link>
-      </div>
-    </div>
+          <landing.Location>
+            <landing.Strong>São Paulo</landing.Strong>
+            <span>São Paulo</span>
+          </landing.Location>                    
+
+
+          <landing.EnterApp>
+            <Link to="/app">
+              <FiArrowRight size={26} color="rgba(0, 0, 0, 0.6)" />
+            </Link>
+          </landing.EnterApp>
+        </landing.ContentWrapper>
+      </landing.PageLanding>
+    </>
   );
 }
+
+
 
 export default Landing;

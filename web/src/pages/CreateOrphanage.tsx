@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { Map, Marker, TileLayer} from 'react-leaflet';
 import { LeafletMouseEvent } from 'leaflet';
-import { FiPlus } from "react-icons/fi";
+import { FiPlus, FiX } from "react-icons/fi";
 
 import SideBar from "../components/Sidebar";
 
@@ -22,7 +22,7 @@ export default function CreateOrphanage() {
   const [opening_hours, setOpeningHours] = useState('');
   const [open_on_weekends, setOpenOnWeekends] = useState(true);
   const [images, setImages] = useState<File[]>([]);
-  const [previewImages, setPreviewImages] = useState<string[]>([]);
+  const [previewImages, setPreviewImages] = useState<{name: string, url: string}[]>([]);
 
 
   function handlerSelectImages(event: ChangeEvent<HTMLInputElement>) {
@@ -30,12 +30,15 @@ export default function CreateOrphanage() {
       return ;
     }
 
-    const SelectedImages = Array.from(event.target.files);
+    const SelectedImages = images.concat(Array.from(event.target.files));
 
     setImages(SelectedImages);
 
     const SelectedImagesPreview = SelectedImages.map( image => {
-      return URL.createObjectURL(image);
+      return {
+        name: image.name,
+        url: URL.createObjectURL(image),
+      }
     })
 
     setPreviewImages(SelectedImagesPreview);
@@ -90,7 +93,7 @@ export default function CreateOrphanage() {
               onClick={handlerMapClick}
             >
               <TileLayer 
-                url={"https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"}
+                url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
               />
               {position.latitude !== 0 
                 && <Marker interactive={false} icon={mapIcon} position={[position.latitude,position.longitude]} />}
@@ -113,7 +116,21 @@ export default function CreateOrphanage() {
               <div className="images-container">
                 {previewImages.map(image => {
                   return (
-                    <img key={image} src={image} alt={name}/>
+                    <div key={image.name} className="image-preview">
+                      <img src={image.url} alt={image.name}/>
+                      <FiX
+                        color="#FFF"
+                        className="delete-image"
+                        onClick={() => {
+                          setImages(images.filter((deletedImage) =>{
+                            return image.name !== deletedImage.name; 
+                          }))
+                          setPreviewImages(previewImages.filter((deletedImage)=> {
+                            return image !== deletedImage;
+                          }))
+                        }}
+                      />
+                    </div>                   
                   )
                 })}
                 <label htmlFor="image[]" className="new-image">
@@ -158,4 +175,4 @@ export default function CreateOrphanage() {
     </div>
   );
 }
-//https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`
+//"https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
